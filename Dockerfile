@@ -1,5 +1,5 @@
-FROM python:2-alpine
-MAINTAINER Henri Dwyer <henri@dwyer.io>
+FROM python:3-alpine
+MAINTAINER Victor Su <victor@seven.me>
 
 VOLUME /certs
 VOLUME /etc/letsencrypt

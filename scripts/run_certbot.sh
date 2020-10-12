@@ -12,7 +12,7 @@ get_certificate() {
   local d=${CERT_DOMAINS//,*/} # read first domain
   echo "Getting certificate for $CERT_DOMAINS"
   certbot certonly --agree-tos --renew-by-default -n \
-  --text --server https://acme-v01.api.letsencrypt.org/directory \
+  --text --server https://acme-v02.api.letsencrypt.org/directory \
   --email $EMAIL -d $CERT_DOMAINS $args
   ec=$?
   echo "certbot exit code $ec"
@@ -38,7 +38,7 @@ if [ $WEBROOT ]
 then
   args=" --webroot -w $WEBROOT"
 else
-  args=" --standalone --standalone-supported-challenges http-01"
+  args=" --standalone --preferred-challenges http-01"
 fi
 
 if $DEBUG
